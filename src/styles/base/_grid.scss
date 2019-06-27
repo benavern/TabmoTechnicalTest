@@ -1,0 +1,17 @@
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+
+  .grid-item {
+    width: 100%;
+
+    @media (min-width: $site-width) {
+      // a 4 column grid will be einough for this project I think.
+      @for $i from 0 through 4 {
+        &.w-#{$i} {
+          width: #{100% / $i}
+        }
+      }
+    }
+  }
+}

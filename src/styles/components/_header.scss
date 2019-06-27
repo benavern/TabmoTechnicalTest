@@ -1,0 +1,22 @@
+.header {
+  background-color: $c-red;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      font-weight: bold;
+    }
+
+    .nav-item {
+      display: inline-block;
+      padding: 1rem;
+      text-decoration: none;
+
+      &:hover {
+        background-color: rgba($c-white, .3);
+      }
+    }
+  }
+}
