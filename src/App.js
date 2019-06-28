@@ -1,14 +1,32 @@
 import React from 'react';
-import Header from './components/header';
-import List from './components/list';
+import Header from './components/header/Header';
+import Home from './components/pages/Home'
+import Shop from './components/pages/Shop'
+import ShopDetail from './components/pages/ShopDetail'
+import About from './components/pages/About'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 class App extends React.Component {
   render () {
     return (
-      <div className="App">
-        <Header />
-        <List />
-      </div>
+      <Router>
+        <div className="App">
+          <Header />
+
+          <main>
+            <div className="container">
+              <Switch>
+                <Route path="/" exact component={Home} />
+
+                <Route path="/shop" exact component={Shop} />
+                <Route path="/shop/:pokemonName" component={ShopDetail} />
+
+                <Route path="/about" component={About}/>
+              </Switch>
+            </div>
+          </main>
+        </div>
+      </Router>
     );
   }
 }

@@ -7,6 +7,8 @@
 
     .logo {
       font-weight: bold;
+      color: $c-yellow;
+      @include text-border ($c-blue, 3);
     }
 
     .nav-item {
