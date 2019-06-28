@@ -8,7 +8,7 @@ export default class Item extends React.Component {
       <li className="grid-item w-2">
         <div className="list-item">
           <header className="list-item__header">
-            <h2>#{this.props.pokemon.index} - {this.props.pokemon.name}</h2>
+            <h2>{this.props.pokemon.name}</h2>
           </header>
 
           <div className="list-item__price">
