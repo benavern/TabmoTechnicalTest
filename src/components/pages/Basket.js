@@ -10,6 +10,8 @@ class Basket extends React.Component {
         <h1> Basket ({this.props.basketNbItems}) </h1>
 
         <BasketList items={this.props.basketItems} addToBasket={this.props.addToBasket} removeFromBasket={this.props.removeFromBasket}/>
+
+        <h3 className="text-right">Total: ${this.props.basketTotalPrice}</h3>
       </div>
     );
   }
@@ -18,7 +20,8 @@ class Basket extends React.Component {
 
 const mapStateToProps = state => ({
   basketItems: state.basket.items,
-  basketNbItems: state.basket.nbItems
+  basketNbItems: state.basket.nbItems,
+  basketTotalPrice: state.basket.totalPrice
 });
 
 const mapDispatchToProps = dispatch => ({

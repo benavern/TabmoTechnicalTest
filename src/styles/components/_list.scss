@@ -3,52 +3,18 @@
   margin: -1rem;
 
   .list-item {
-    background-color: $c-red;
     margin: 1rem;
-    border-radius: .3rem;
 
     h2 {
-      font-size: 3rem;
       margin: 0;
       color: $c-yellow;
-      @include text-border($c-blue, 6);
+      text-shadow: 3px 3px 0 $c-blue;
     }
 
     h3 {
       margin: 0;
       color: $c-yellow;
       text-align: right;
-    }
-
-    .list-item-line {
-      padding: 1rem;
-      border-bottom: 1px solid rgba($c-white, .5);
-    }
-
-    .list-item-btns {
-      display: flex;
-
-      a,
-      button {
-        display: inline-block;
-        border: none;
-        border-right: 1px solid rgba($c-white, .5);
-        color: $c-white;
-        background: none;
-        text-decoration: none;
-        padding: 1rem;
-        font-weight: bold;
-        width: 50%;
-        text-align: center;
-
-        &:last-child {
-          border-right: none;
-        }
-
-        &:hover {
-          background-color: rgba($c-white, .3);
-        }
-      }
     }
   }
 }

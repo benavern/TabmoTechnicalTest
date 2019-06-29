@@ -1,0 +1,26 @@
+.basket-list {
+  margin: 0 -1rem;
+
+  .basket-item {
+    margin: 1rem;
+  }
+
+  h2 {
+    margin: 0;
+    color: $c-yellow;
+    text-shadow: 3px 3px 0 $c-blue;
+  }
+
+  .basket-item-value {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .basket-item-total {
+    color: $c-yellow;
+  }
+}
+
+.basket-total {
+  color: pink;
+}
