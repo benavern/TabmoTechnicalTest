@@ -5,7 +5,46 @@
   .list-item {
     background-color: $c-red;
     margin: 1rem;
-    padding: 1rem;
+    border: 1px solid $c-white;
     border-radius: .3rem;
+
+    h2 {
+      font-size: 3rem;
+      margin: 0;
+      color: $c-yellow;
+      @include text-border($c-blue, 6);
+    }
+
+    h3 {
+      margin: 0;
+      color: $c-yellow;
+      text-align: right;
+    }
+
+    .list-item-line {
+      padding: 1rem;
+      border-bottom: 1px solid $c-white;
+    }
+
+    .list-item-btns {
+      display: flex;
+
+      a,
+      button {
+        display: inline-block;
+        border: none;
+        color: $c-white;
+        background: none;
+        text-decoration: none;
+        padding: 1rem;
+        font-weight: bold;
+        width: 50%;
+        text-align: center;
+
+        &:hover {
+          background-color: rgba($c-white, .3);
+        }
+      }
+    }
   }
 }

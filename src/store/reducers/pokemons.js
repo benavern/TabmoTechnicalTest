@@ -1,36 +1,23 @@
 const defaultState = {
-  list: [
-    {
-      name:"bulbasaur",
-      url:"https://pokeapi.co/api/v2/pokemon/1/",
-      price: Math.round(Math.random() * 1000)
-    },
-    {
-      name:"ivysaur",
-      url:"https://pokeapi.co/api/v2/pokemon/2/",
-      price: Math.round(Math.random() * 1000)
-    },
-    {
-      name:"test 3",
-      url:"https://pokeapi.co/api/v2/pokemon/1/",
-      price: Math.round(Math.random() * 1000)
-    },
-    {
-      name:"test 4",
-      url:"https://pokeapi.co/api/v2/pokemon/2/",
-      price: Math.round(Math.random() * 1000)
-    }
-  ],
-  details: {}
+  list: [],
+  offset: 0
 }
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case 'ADD':
+    case 'FETCH_POKEMONS_SUCCESS':
       return {
         ...state,
-        list: [...state.list, {...action.payload, price: Math.round(Math.random() * 1000)}]
+        list: [
+          ...state.list,
+          ...action.payload.results.map(pokemon => ({
+            ...pokemon,
+            price: pokemon.name.length * 42
+          }))
+        ],
+        offset: state.offset + 20
       };
+
     default:
       return state;
   }

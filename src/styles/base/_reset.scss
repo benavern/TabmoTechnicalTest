@@ -23,6 +23,15 @@ a {
   color: inherit;
 }
 
+button {
+  font-family: inherit;
+  font-size: inherit;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 ul {
   list-style: none;
   padding: 0;

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class Header extends React.Component {
+class Header extends React.Component {
 
   render () {
     return (
@@ -22,6 +23,10 @@ export default class Header extends React.Component {
                   Shop
                 </Link>
 
+                <Link to="/basket" className="nav-item">
+                  Basket ({this.props.basketNbArticles})
+                </Link>
+
                 <Link to="/about" className="nav-item">
                   About
                 </Link>
@@ -33,3 +38,12 @@ export default class Header extends React.Component {
     );
   }
 }
+
+
+const mapStateToProps = state => ({
+  basketNbArticles: state.basket.reduce((total, current) => {
+    return total + current.nb
+  }, 0)
+});
+
+export default connect(mapStateToProps)(Header)

@@ -1,24 +1,19 @@
 import api from '../../api';
 
-export function fetchList (offset = 0) {
+export function fetchDetails (name) {
   return dispatch => {
-    api.get('/', {
-      params: {
-        offset,
-        limit: 20
-      }
-    })
+    api.get(`/${name}`)
       .then(res => {
         dispatch({
-          type: 'FETCH_POKEMONS_SUCCESS',
+          type: 'FETCH_DETAIL_SUCCESS',
           payload: res.data
-        })
+        });
       })
       .catch(error => {
         dispatch({
           type: 'API_ERROR',
           payload: error
-        })
+        });
       })
   }
 }
