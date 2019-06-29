@@ -24,7 +24,7 @@ class Header extends React.Component {
                 </Link>
 
                 <Link to="/basket" className="nav-item">
-                  Basket ({this.props.basketNbArticles})
+                  Basket ({this.props.basketNbItems})
                 </Link>
 
                 <Link to="/about" className="nav-item">
@@ -41,9 +41,7 @@ class Header extends React.Component {
 
 
 const mapStateToProps = state => ({
-  basketNbArticles: state.basket.reduce((total, current) => {
-    return total + current.nb
-  }, 0)
+  basketNbItems: state.basket.nbItems
 });
 
 export default connect(mapStateToProps)(Header)

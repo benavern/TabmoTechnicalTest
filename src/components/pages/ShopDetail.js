@@ -18,6 +18,7 @@ class ShopDetails extends React.Component {
     if (!this.props.details[this.pokemonName]) {
       return <p>No information on this.pokemonName</p>
     }
+
     return(
       <div id="shop-details">
         <h1>Details for {this.pokemonName}</h1>

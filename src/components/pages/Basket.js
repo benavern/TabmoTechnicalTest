@@ -7,9 +7,9 @@ class Basket extends React.Component {
   render () {
     return(
       <div id="basket">
-        <h1> Basket ({this.props.basket.reduce((total, current) => total + current.nb, 0)}) </h1>
+        <h1> Basket ({this.props.basketNbItems}) </h1>
 
-        <BasketList items={this.props.basket} addToBasket={this.props.addToBasket} removeFromBasket={this.props.removeFromBasket}/>
+        <BasketList items={this.props.basketItems} addToBasket={this.props.addToBasket} removeFromBasket={this.props.removeFromBasket}/>
       </div>
     );
   }
@@ -17,7 +17,8 @@ class Basket extends React.Component {
 
 
 const mapStateToProps = state => ({
-  basket: state.basket
+  basketItems: state.basket.items,
+  basketNbItems: state.basket.nbItems
 });
 
 const mapDispatchToProps = dispatch => ({
