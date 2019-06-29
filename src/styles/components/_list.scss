@@ -5,7 +5,6 @@
   .list-item {
     background-color: $c-red;
     margin: 1rem;
-    border: 1px solid $c-white;
     border-radius: .3rem;
 
     h2 {
@@ -23,7 +22,7 @@
 
     .list-item-line {
       padding: 1rem;
-      border-bottom: 1px solid $c-white;
+      border-bottom: 1px solid rgba($c-white, .5);
     }
 
     .list-item-btns {
@@ -33,6 +32,7 @@
       button {
         display: inline-block;
         border: none;
+        border-right: 1px solid rgba($c-white, .5);
         color: $c-white;
         background: none;
         text-decoration: none;
@@ -40,6 +40,10 @@
         font-weight: bold;
         width: 50%;
         text-align: center;
+
+        &:last-child {
+          border-right: none;
+        }
 
         &:hover {
           background-color: rgba($c-white, .3);

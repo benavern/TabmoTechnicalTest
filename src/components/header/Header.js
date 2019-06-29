@@ -1,35 +1,58 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Header extends React.Component {
+
+  constructor (props) {
+    super(props);
+    this.state = {
+      navVisible: false
+    }
+  }
+
+  onNavToggle () {
+    this.setState({
+      navVisible: !this.state.navVisible
+    });
+  }
 
   render () {
     return (
       <header className="header">
         <div className="container header-content">
-          <Link to="/" className="logo nav-item">
-            POKEZON
-          </Link>
+          <NavLink to="/" className="logo nav-item">
+            PoKéZoN
+          </NavLink>
 
-          <nav>
+          <button className="nav-item nav-toggle" onClick={this.onNavToggle.bind(this)}>
+            &#9776;
+          </button>
+
+          <nav className={this.state.navVisible ? 'visible' : ''}>
             <ul>
               <li>
-                <Link to="/" className="nav-item">
+                <NavLink to="/"  exact className="nav-item" onClick={this.onNavToggle.bind(this)}>
                   Home
-                </Link>
+                </NavLink>
+              </li>
 
-                <Link to="/shop" className="nav-item">
+              <li>
+                <NavLink to="/shop" className="nav-item" onClick={this.onNavToggle.bind(this)}>
                   Shop
-                </Link>
+                </NavLink>
+              </li>
 
-                <Link to="/basket" className="nav-item">
-                  Basket ({this.props.basketNbItems})
-                </Link>
+              <li>
+                <NavLink to="/basket" className="nav-item" onClick={this.onNavToggle.bind(this)}>
+                  Basket <small>(x{this.props.basketNbItems} / ${this.props.basketTotalPrice})</small>
+                </NavLink>
+              </li>
 
-                <Link to="/about" className="nav-item">
+              <li>
+                <NavLink to="/about" className="nav-item" onClick={this.onNavToggle.bind(this)}>
                   About
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </nav>
@@ -41,7 +64,8 @@ class Header extends React.Component {
 
 
 const mapStateToProps = state => ({
-  basketNbItems: state.basket.nbItems
+  basketNbItems: state.basket.nbItems,
+  basketTotalPrice: state.basket.totalPrice
 });
 
 export default connect(mapStateToProps)(Header)
