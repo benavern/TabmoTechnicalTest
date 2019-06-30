@@ -38,7 +38,6 @@ export default class Details  extends React.Component {
           <div className="card-text"><b>Price</b>: ${this.props.details.price}</div>
           <button onClick={this.props.addToBasket}>Add to basket</button>
         </div>
-
       </article>
     );
   }

@@ -26,7 +26,9 @@ class ShopDetails extends React.Component {
 
         <Details details={this.props.details[this.pokemonName]} addToBasket={() => this.props.addToBasket(this.pokemonName)} />
 
-        <Link to="/shop">&larr; Back to the shop</Link>
+        <div className="back-to-shop">
+          <Link to="/shop">&larr; Back to the shop</Link>
+        </div>
       </div>
     );
   }
