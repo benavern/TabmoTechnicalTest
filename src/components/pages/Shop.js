@@ -12,7 +12,7 @@ class Shop extends React.Component {
   render () {
     return(
       <div id="shop">
-        <h1>List of Pokemons</h1>
+        <h1>List of PoKéMoNs</h1>
 
         <List pokemons={this.props.pokemons} addToBasket={this.props.addToBasket} />
 

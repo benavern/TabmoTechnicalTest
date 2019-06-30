@@ -11,7 +11,7 @@ export default class Item extends React.Component {
           </header>
 
           <div className="card-line card-text">
-            <h3>${this.props.pokemon.price}</h3>
+            <h3 className="text-right">${this.props.pokemon.price}</h3>
           </div>
 
           <footer className="card-line card-btns">

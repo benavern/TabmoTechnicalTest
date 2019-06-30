@@ -29,6 +29,10 @@
       > * {
         flex: 1;
         border-right: 1px solid rgba($c-white, .5);
+
+        &:last-child {
+          border-right: none;
+        }
       }
     }
   }

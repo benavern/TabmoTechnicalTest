@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import { addToBasket } from '../../store/actions/basket';
 import { fetchDetails } from '../../store/actions/details';
 import Details from '../details/Details'
@@ -21,9 +22,11 @@ class ShopDetails extends React.Component {
 
     return(
       <div id="shop-details">
-        <h1>Details for {this.pokemonName}</h1>
+        <h1>PoKéMoN details</h1>
 
         <Details details={this.props.details[this.pokemonName]} addToBasket={() => this.props.addToBasket(this.pokemonName)} />
+
+        <Link to="/shop">&larr; Back to the shop</Link>
       </div>
     );
   }
