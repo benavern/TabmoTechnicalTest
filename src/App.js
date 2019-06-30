@@ -6,6 +6,9 @@ import ShopDetail from './components/pages/ShopDetail'
 import Basket from './components/pages/Basket'
 import About from './components/pages/About'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux'
+import Messages from './components/messages/Messages'
+import { closeMessage } from './store/actions/messages'
 
 class App extends React.Component {
   render () {
@@ -30,10 +33,20 @@ class App extends React.Component {
               </Switch>
             </div>
           </main>
+
+          <Messages messages={this.props.messages} closeMessage={this.props.closeMessage} />
         </div>
       </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  messages: state.messages
+});
+
+const mapDispatchToProps = dispatch => ({
+  closeMessage: index => dispatch(closeMessage(index))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

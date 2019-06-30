@@ -17,7 +17,6 @@ class Basket extends React.Component {
   }
 }
 
-
 const mapStateToProps = state => ({
   basketItems: state.basket.items,
   basketNbItems: state.basket.nbItems,

@@ -36,7 +36,6 @@ class ShopDetails extends React.Component {
   }
 }
 
-
 const mapStateToProps = state => ({
   details: state.details
 });

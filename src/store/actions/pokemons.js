@@ -18,11 +18,14 @@ export function fetchList (offset = 0) {
           payload: res.data
         })
       })
-      .catch(error => {
+      .catch(() => {
         dispatch({
-          type: 'API_ERROR',
-          payload: error
-        })
+          type: 'NEW_MESSAGE',
+          payload: {
+            type: 'error',
+            text: 'An error occured when fetching new PoKéMoNs.'
+          }
+        });
       })
   }
 }

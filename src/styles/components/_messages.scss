@@ -1,0 +1,41 @@
+.messages {
+  position: fixed;
+  z-index: 1;
+  right: 1rem;
+  bottom: 1rem;
+  width: 350px;
+  max-width: calc(100% - 2rem);
+
+  .message-item {
+    display: flex;
+    color: $c-white;
+    background-color: $c-yellow;
+    margin-top: 1rem;
+
+    &.info {
+      background-color: $c-blue;
+    }
+
+    &.error {
+      background-color: $c-red;
+    }
+
+    p {
+      flex: 1;
+      padding: 1rem;
+      margin: 0;
+    }
+
+    button {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: inherit;
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba($c-white, .5);
+      }
+    }
+  }
+}
