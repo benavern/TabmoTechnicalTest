@@ -16,15 +16,17 @@ class ShopDetails extends React.Component {
   }
 
   render () {
-    if (!this.props.details[this.pokemonName]) {
-      return <p>No information on this.pokemonName</p>
-    }
-
     return(
       <div id="shop-details">
         <h1>PoKéMoN details</h1>
 
-        <Details details={this.props.details[this.pokemonName]} addToBasket={() => this.props.addToBasket(this.pokemonName)} />
+        {this.props.details[this.pokemonName]
+
+          ? <Details details={this.props.details[this.pokemonName]} addToBasket={() => this.props.addToBasket(this.pokemonName)} />
+
+          : <div className="shop-is-loading text-center">
+              <div className="loader"></div>
+            </div>}
 
         <div className="back-to-shop">
           <Link to="/shop">&larr; Back to the shop</Link>

@@ -2,6 +2,10 @@ import api from '../../api';
 
 export function fetchList (offset = 0) {
   return dispatch => {
+    dispatch({
+      type: 'FETCH_POKEMONS_LOADING'
+    })
+
     api.get('/', {
       params: {
         offset,

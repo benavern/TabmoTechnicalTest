@@ -2,10 +2,11 @@
 @import './utils/mixins';
 
 @import './base/reset';
+@import './base/animations';
 @import './base/classes';
 @import './base/grid';
 
 @import './components/header';
-@import './components/list';
+@import './components/shop';
 @import './components/details';
 @import './components/basket';

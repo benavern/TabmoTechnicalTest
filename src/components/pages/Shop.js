@@ -6,7 +6,26 @@ import { addToBasket } from '../../store/actions/basket';
 
 class Shop extends React.Component {
   componentWillMount() {
-    this.props.fetch(this.props.nextOffset)
+    this.fetchList();
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.onScroll.bind(this), false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll.bind(this), false);
+  }
+
+  onScroll () {
+    const scrolled = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100)
+      if (scrolled && !this.props.isLoading && this.props.pokemons.length) {
+        this.fetchList();
+      }
+  }
+
+  fetchList () {
+    this.props.fetch(this.props.nextOffset);
   }
 
   render () {
@@ -16,7 +35,13 @@ class Shop extends React.Component {
 
         <List pokemons={this.props.pokemons} addToBasket={this.props.addToBasket} />
 
-        <button onClick={() => this.props.fetch(this.props.nextOffset)}>fetch 20</button>
+        {this.props.isLoading
+
+          ? <div className="is-loading text-center">
+              <div className="loader"></div>
+            </div>
+
+          : ''}
       </div>
     );
   }
@@ -24,7 +49,8 @@ class Shop extends React.Component {
 
 const mapStateToProps = state => ({
   pokemons: state.pokemons.list,
-  nextOffset: state.pokemons.offset
+  nextOffset: state.pokemons.offset,
+  isLoading: state.pokemons.loading
 });
 
 const mapDispatchToProps = dispatch => ({
