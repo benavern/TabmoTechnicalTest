@@ -22,7 +22,6 @@ export function removeFromBasket (name) {
       payload: name
     });
 
-
     dispatch({
       type: 'NEW_MESSAGE',
       payload: {
@@ -30,5 +29,24 @@ export function removeFromBasket (name) {
         text: `Successfully removed a ${name} from your basket.`
       }
     });
+  }
+}
+
+export function buyBasket (basket) {
+  return dispatch => {
+    dispatch({
+      type: 'UPDATE_USER_POKEMONS',
+      payload: basket.items
+    });
+
+    dispatch({
+      type: 'NEW_MESSAGE',
+      payload: {
+        type:'success',
+        text: `CONGRATULATIONS! you just bought ${basket.nbItems} for $${basket.totalPrice}`
+      }
+    });
+
+    dispatch({ type: 'RESET_BASKET' });
   }
 }

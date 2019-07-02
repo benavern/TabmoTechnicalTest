@@ -1,6 +1,7 @@
 .details {
   .details-avatar {
-    flex: 0!important;
+    flex: auto 0 1 !important; // little hack just to be able to control the width of this very item
+    width: 96px;
   }
 
   .details-name {

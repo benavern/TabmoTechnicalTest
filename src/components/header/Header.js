@@ -51,7 +51,7 @@ class Header extends React.Component {
 
               <li>
                 <NavLink to="/about" className="nav-item" onClick={this.onNavToggle.bind(this)}>
-                  About
+                  {this.props.playerName} <small>(x{this.props.playerNbPokemons})</small>
                 </NavLink>
               </li>
             </ul>
@@ -65,7 +65,9 @@ class Header extends React.Component {
 
 const mapStateToProps = state => ({
   basketNbItems: state.basket.nbItems,
-  basketTotalPrice: state.basket.totalPrice
+  basketTotalPrice: state.basket.totalPrice,
+  playerName: state.about.name,
+  playerNbPokemons: state.about.pokemons.reduce((total, current) => total + current.nb, 0)
 });
 
 export default connect(mapStateToProps)(Header)

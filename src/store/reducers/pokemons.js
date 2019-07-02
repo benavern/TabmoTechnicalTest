@@ -2,7 +2,7 @@ const defaultState = {
   list: [],
   offset: 0,
   loading: false
-}
+};
 
 export default (state = defaultState, action) => {
   switch (action.type) {

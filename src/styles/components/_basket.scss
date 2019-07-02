@@ -1,22 +1,38 @@
-.basket-list {
-  margin: 0 -1rem;
+#basket {
+  .basket-list {
+    margin: 0 -1rem;
 
-  .basket-item {
+    .basket-item {
+      margin: 1rem;
+    }
+
+    h2 {
+      margin: 0;
+      color: $c-yellow;
+      text-shadow: 3px 3px 0 $c-blue;
+    }
+
+    .basket-item-value {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .basket-item-total {
+      color: $c-yellow;
+    }
+  }
+
+  .basket-pay-button {
+    border: none;
+    background-color: $c-red;
+    color: $c-white;
+    padding: 1rem 2rem;
     margin: 1rem;
-  }
-
-  h2 {
-    margin: 0;
-    color: $c-yellow;
-    text-shadow: 3px 3px 0 $c-blue;
-  }
-
-  .basket-item-value {
-    font-size: 1.2em;
+    border-radius: .3rem;
     font-weight: bold;
-  }
 
-  .basket-item-total {
-    color: $c-yellow;
+    &:disabled {
+      opacity: .5;
+    }
   }
 }

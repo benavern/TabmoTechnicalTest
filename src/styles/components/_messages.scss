@@ -11,9 +11,14 @@
     color: $c-white;
     background-color: $c-yellow;
     margin-top: 1rem;
+    border-radius: .3rem;
 
     &.info {
       background-color: $c-blue;
+    }
+
+    &.success {
+      background-color: $c-green;
     }
 
     &.error {

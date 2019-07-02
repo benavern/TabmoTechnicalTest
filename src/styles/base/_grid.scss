@@ -6,8 +6,8 @@
     width: 100%;
 
     @media (min-width: $site-width) {
-      // a 4 column grid will be einough for this project I think.
-      @for $i from 0 through 4 {
+      // a 2 column grid will be einough for this project I think.
+      @for $i from 0 through 2 {
         &.w-#{$i} {
           width: #{100% / $i}
         }

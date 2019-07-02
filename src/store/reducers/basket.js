@@ -3,8 +3,8 @@ export default (state = {
   totalPrice: 0,
   nbItems: 0
 }, action) => {
-  const index = state.items.findIndex(item => item.name === action.payload)
-  const stateCopy = {...state}
+  const index = state.items.findIndex(item => item.name === action.payload);
+  const stateCopy = {...state};
 
   switch (action.type) {
     case 'ADD_TO_BASKET':
@@ -15,16 +15,16 @@ export default (state = {
           name: action.payload,
           nb: 1,
           price: action.payload.length * 42
-        })
+        });
       }
 
-      stateCopy.totalPrice = state.items.reduce((totalPrice, current) => totalPrice + (current.nb * current.price), 0)
-      stateCopy.nbItems = state.items.reduce((nbItems, current) => nbItems + current.nb, 0)
-      return stateCopy
+      stateCopy.totalPrice = state.items.reduce((totalPrice, current) => totalPrice + (current.nb * current.price), 0);
+      stateCopy.nbItems = state.items.reduce((nbItems, current) => nbItems + current.nb, 0);
+      return stateCopy;
 
     case 'REMOVE_FROM_BASKET':
       // no item with this name in the state
-      if(index < 0) return state
+      if (index < 0) return state
 
       if (state.items[index].nb > 1) { // there is more than one in the state
         stateCopy.items[index].nb -= 1;
@@ -35,6 +35,13 @@ export default (state = {
       stateCopy.totalPrice = state.items.reduce((totalPrice, current) => totalPrice + (current.nb * current.price), 0)
       stateCopy.nbItems = state.items.reduce((nbItems, current) => nbItems + current.nb, 0)
       return stateCopy;
+
+    case 'RESET_BASKET':
+      return {
+        items: [],
+        totalPrice: 0,
+        nbItems: 0
+      };
 
     default:
       return state;
