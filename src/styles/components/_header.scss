@@ -22,10 +22,7 @@
     }
 
     .logo {
-      font-weight: bold;
       font-size: 2rem;
-      color: $c-yellow;
-      @include text-border ($c-blue, 3);
     }
 
     .nav-toggle {

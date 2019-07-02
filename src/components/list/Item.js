@@ -7,7 +7,7 @@ export default class Item extends React.Component {
       <li className="grid-item w-2">
         <div className="list-item card">
           <header className="card-line card-text">
-            <h2>{this.props.pokemon.name}</h2>
+            <h2 className="custom-title">{this.props.pokemon.name}</h2>
           </header>
 
           <div className="card-line card-text">

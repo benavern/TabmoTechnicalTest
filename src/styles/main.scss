@@ -1,5 +1,4 @@
 @import './utils/variables';
-@import './utils/mixins';
 
 @import './base/reset';
 @import './base/animations';
@@ -7,6 +6,7 @@
 @import './base/grid';
 
 @import './components/header';
+@import './components/home';
 @import './components/shop';
 @import './components/details';
 @import './components/basket';

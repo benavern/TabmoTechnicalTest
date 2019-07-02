@@ -5,6 +5,13 @@
   padding: 0 1rem;
 }
 
+.custom-title {
+  font-weight: bold;
+  color: $c-yellow;
+  text-shadow: .1em .1em 0 $c-blue;
+  letter-spacing: -.05em;
+}
+
 .text-center {
   text-align: center;
 }

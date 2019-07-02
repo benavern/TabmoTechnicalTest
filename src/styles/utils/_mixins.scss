@@ -1,9 +1,0 @@
-// creates a very heavy text shadow that mimicks a text border
-@mixin text-border ($color, $width) {
-  $shadow: $color 0px 0px #{$width + px};
-  $border: $shadow;
-  @for $i from 1 through (6 * $width) {
-    $border: $border, $shadow;
-  }
-  text-shadow: $border;
-}

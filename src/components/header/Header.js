@@ -21,7 +21,7 @@ class Header extends React.Component {
     return (
       <header className="header">
         <div className="container header-content">
-          <NavLink to="/" className="logo nav-item">
+          <NavLink to="/" className="logo custom-title nav-item">
             PoKéZoN
           </NavLink>
 
@@ -51,7 +51,7 @@ class Header extends React.Component {
 
               <li>
                 <NavLink to="/about" className="nav-item" onClick={this.onNavToggle.bind(this)}>
-                  {this.props.playerName} <small>(x{this.props.playerNbPokemons})</small>
+                  <b>{this.props.playerName}</b> <small>(x{this.props.playerNbPokemons})</small>
                 </NavLink>
               </li>
             </ul>
