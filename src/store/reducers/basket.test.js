@@ -94,4 +94,21 @@ describe('basket reducer', () => {
       })
     })
   })
+
+  test('RESET_BASKET', () => {
+    expect(basketReducer(
+      {
+        items: [{ name: 'testPokemon', nb: 2, price: 462 }],
+        nbItems: 2,
+        totalPrice: 924
+      },
+      {
+        type: 'RESET_BASKET'
+      }
+    )).toEqual({
+      items: [],
+      totalPrice: 0,
+      nbItems: 0
+    })
+  })
 })
