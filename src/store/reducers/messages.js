@@ -3,13 +3,18 @@ import uniqid from 'uniqid'
 export default (state = [], action) => {
   switch (action.type) {
     case 'NEW_MESSAGE':
-      return [
-        ...state,
-        {
-          ...action.payload,
-          id: uniqid()
-        }
-      ];
+
+      if (action.payload.text) {
+        return [
+          ...state,
+          {
+            type: action.payload.type || 'info',
+            text: action.payload.text,
+            id: uniqid()
+          }
+        ];
+      }
+      return state;
 
     case 'CLOSE_MESSAGE':
       return state.filter(message => message.id !== action.payload);
