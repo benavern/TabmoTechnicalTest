@@ -1,17 +1,13 @@
 import pokemonsReducer from './pokemons';
 
-function defaultStateFactory () {
-  return {
-    list: [],
-    offset: 0,
-    loading: false
-  }
-}
-
 describe('pokemons reducer', () => {
   test('FETCH_POKEMONS_LOADING', () => {
     expect(pokemonsReducer(
-      defaultStateFactory(),
+      {
+        list: [],
+        offset: 0,
+        loading: false
+      },
       { type: 'FETCH_POKEMONS_LOADING' })
     ).toEqual({
       list: [],
@@ -22,7 +18,11 @@ describe('pokemons reducer', () => {
 
   test('FETCH_POKEMONS_SUCCESS', () => {
     expect(pokemonsReducer(
-      defaultStateFactory(),
+      {
+        list: [],
+        offset: 0,
+        loading: false
+      },
       {
         type: 'FETCH_POKEMONS_SUCCESS',
         payload: {

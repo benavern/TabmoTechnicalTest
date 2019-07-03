@@ -1,4 +1,5 @@
 import messagesReducer from './messages';
+jest.mock('uniqid', () => jest.fn(() => 'uniqid'));
 
 describe('messages reducer', () => {
   describe('NEW_MESSAGE', () => {
@@ -13,29 +14,31 @@ describe('messages reducer', () => {
     })
 
     test('new message without type', () => {
-      const testMessages = messagesReducer(
+      expect(messagesReducer(
         [],
         {
           type: 'NEW_MESSAGE',
           payload: { text: 'message test' }
         }
-      );
-      // no need to verify the id, it is uniq ;)
-      expect(testMessages[0].type).toBe('info');
-      expect(testMessages[0].text).toBe('message test');
+      )).toEqual([{
+        type: 'info',
+        text: 'message test',
+        id: 'uniqid'
+      }]);
     })
 
     test('new message with custom type', () => {
-      const testMessages = messagesReducer(
+      expect(messagesReducer(
         [],
         {
           type: 'NEW_MESSAGE',
           payload: { type: 'error', text: 'message test' }
         }
-      );
-      // no need to verify the id, it is uniq ;)
-      expect(testMessages[0].type).toBe('error');
-      expect(testMessages[0].text).toBe('message test');
+      )).toEqual([{
+        type: 'error',
+        text: 'message test',
+        id: 'uniqid'
+      }]);
     })
   })
 
