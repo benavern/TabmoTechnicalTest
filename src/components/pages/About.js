@@ -33,6 +33,10 @@ class About extends React.Component {
                   })}
                 </ul>
               </div>
+
+              <div className="card-line card-text">
+                <small><a href="https://fantendo.fandom.com/wiki/File:Red_by_Xous_54.png">Image credit</a></small>
+              </div>
             </div>
           </div>
         </div>

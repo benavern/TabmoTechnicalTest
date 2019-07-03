@@ -13,13 +13,13 @@ export default class Home extends React.Component {
           </div>
 
           <div className="card-line card-text">
-            This website is a virtual pokemon shopping application.
+            This website is a virtual PoKéMoN shopping application.
             It has been built with create-react-app, react-router-dom, react-redux, redux, redux-thunk, axios &amp; node-sass.
           </div>
 
           <div className="card-line card-text">
             I am <a href="https://benjamin.caradeuc.info/" target="_blank" rel="noopener noreferrer">Benjamin Caradeuc</a>, had almost never used react before but enjoyed playing with it for that project.
-            I'll surely will consider using it more often!
+            I surely will consider using it more often!
           </div>
 
           <div className="card-line card-text">

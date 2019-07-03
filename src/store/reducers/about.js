@@ -1,7 +1,9 @@
+import avatar from '../../assets/Jean-avatar.png'
+
 export default (state = {
   name: 'Jean',
   age: 25,
-  avatar: 'https://vignette3.wikia.nocookie.net/fantendo/images/5/5c/Red_by_Xous_54.png/revision/latest?cb=20110707181842',
+  avatar,
   pokemons: []
 }, action) => {
   switch (action.type) {
