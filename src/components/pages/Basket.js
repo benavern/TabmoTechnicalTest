@@ -11,7 +11,7 @@ class Basket extends React.Component {
 
         <BasketList items={this.props.basket.items} addToBasket={this.props.addToBasket} removeFromBasket={this.props.removeFromBasket}/>
 
-        <button className="basket-pay-button" onClick={() => this.props.buyBasket(this.props.basket)} disabled={!this.props.basket.nbItems}>
+        <button className="basket-pay-button" onClick={() => this.props.buyBasket(this.props.basket, this.props.history)} disabled={!this.props.basket.nbItems}>
           Payer ${this.props.basket.totalPrice}
         </button>
       </div>
@@ -26,7 +26,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addToBasket: name => dispatch(addToBasket(name)),
   removeFromBasket: name => dispatch(removeFromBasket(name)),
-  buyBasket: basket => dispatch(buyBasket(basket))
+  buyBasket: (basket, history) => dispatch(buyBasket(basket, history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Basket)
